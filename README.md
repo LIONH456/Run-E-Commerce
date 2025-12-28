@@ -180,4 +180,14 @@ If your data still does not appear, check the following:
 
 ---
 
+## Important: CSRF and trusted origins ⚠️
+When deploying with a domain and HTTPS, Django requires `CSRF_TRUSTED_ORIGINS` to include the origin(s) where your site is served (including scheme), for example:
+
+Add to `.env`:
+
+CSRF_TRUSTED_ORIGINS=https://run-ecommerce.sustore.uk
+
+After changing `.env` restart your services (`docker compose down && docker compose up -d --build`).
+
+If you forget to set this, you'll see: "Origin checking failed - https://yourdomain does not match any trusted origins."
 Enjoy! If you'd like, I can now add unit tests or create the GitHub repo and push the code for you.

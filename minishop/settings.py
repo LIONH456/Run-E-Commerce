@@ -12,6 +12,21 @@ DEBUG = env('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
+# Trusted CSRF origins (expects full origins with scheme, e.g. "https://example.com").
+# You can set CSRF_TRUSTED_ORIGINS in your .env (comma-separated). If not provided
+# and ALLOWED_HOSTS is set (and not '*'), we auto-generate https://{host} entries.
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+if not CSRF_TRUSTED_ORIGINS and ALLOWED_HOSTS and ALLOWED_HOSTS != ['*']:
+    computed = []
+    for h in ALLOWED_HOSTS:
+        if not h or h == '*':
+            continue
+        if h.startswith('http://') or h.startswith('https://'):
+            computed.append(h)
+        else:
+            computed.append('https://' + h)
+    CSRF_TRUSTED_ORIGINS = computed
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
