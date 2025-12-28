@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: mysql:8.0
@@ -19,13 +17,14 @@ services:
 
   web:
     build: .
-    command: "/app/entrypoint.sh"
+    command: "sh /app/entrypoint.sh"
     env_file:
       - .env
     depends_on:
       - db
     volumes:
       - .:/app
+      - ./compose/entrypoint.sh:/app/entrypoint.sh:ro
     expose:
       - "8000"
 
