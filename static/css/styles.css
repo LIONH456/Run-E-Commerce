@@ -1,0 +1,30 @@
+body { background: #fff; }
+/* Portrait-friendly product images */
+.product-img-portrait { display:block; margin:0 auto; height: 220px; width: auto; max-width:100%; object-fit:cover; }
+/* Product detail larger image */
+.product-detail-img { display:block; margin:0 auto; height: 360px; width: auto; max-width:100%; object-fit:cover; }
+.card-img-top { object-fit: cover; height: 220px; }
+.navbar-brand { font-weight: 700; color: #fff !important; }
+.card-text.text-truncate { max-height: 3.6em; overflow: hidden; }
+footer { margin-top: 2rem; }
+
+/* Hide default number input spinners */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Make admin and cart image thumbnails consistent (fixed portrait) */
+.admin-thumb { width: 80px !important; height: 120px !important; object-fit: cover; border-radius: 4px; display:block; }
+.cart-thumb { width: 80px; height: 120px; object-fit: cover; border-radius: 4px; display:inline-block; }
+#product-image-preview-img { width:80px !important; height:120px !important; object-fit:cover; border-radius:4px; display:block; }
+
+/* Small utility */
+.d-none { display: none !important; }
+
+/* Small utility */
+.d-none { display: none !important; }

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">Order Confirmation</h3>
+    <p>Thank you, <strong>{{ order.customer_name }}</strong>. Your order has been placed.</p>
+    <p><strong>Order ID:</strong> {{ order.order_id }}</p>
+    <p><strong>Total:</strong> ${{ order.total_amount }}</p>
+    <a class="btn btn-primary" href="/">Back to Shop</a>
+  </div>
+</div>
+{% endblock %}

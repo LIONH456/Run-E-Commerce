@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-5">
+    {% if product.image_url %}
+      <img src="{{ product.image_url }}" class="product-detail-img img-fluid rounded" alt="{{ product.name }}">
+    {% else %}
+      <div class="bg-light p-5 text-center">No Image</div>
+    {% endif %}
+  </div>
+  <div class="col-md-7">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
+    <div class="d-flex align-items-center" data-qty-form>
+      <input type="number" value="1" min="1" class="form-control me-2" style="width:100px;" data-qty>
+      <button class="btn btn-success" data-add-product="{{ product.product_id }}">Add to Cart</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
