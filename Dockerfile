@@ -12,12 +12,12 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /app/
 
+# Entrypoint will run migrations and start Gunicorn when container starts (see entrypoint.sh)
+COPY compose/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Create a user for safety
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
 USER appuser
-
-# Entrypoint will run migrations and start Gunicorn when container starts (see entrypoint.sh)
-COPY compose/entrypoint.sh /app/entrypoint.sh
-RUN sudo chmod +x /app/entrypoint.sh
 
 CMD ["/app/entrypoint.sh"]
