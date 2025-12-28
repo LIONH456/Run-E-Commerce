@@ -18,6 +18,6 @@ USER appuser
 
 # Entrypoint will run migrations and start Gunicorn when container starts (see entrypoint.sh)
 COPY compose/entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN sudo chmod +x /app/entrypoint.sh
 
 CMD ["/app/entrypoint.sh"]
